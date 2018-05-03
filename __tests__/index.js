@@ -53,7 +53,7 @@ describe("context", () => {
         }
       }
       render(props, { value }) {
-        if (this.state.value !== "wow it changed") {
+        if (value !== "wow it changed") {
           this.setState({ value: "wow it changed" });
         }
         return h(Provider, { value }, h(ValueDisplayer));
@@ -64,5 +64,29 @@ describe("context", () => {
     await promise;
 
     expect(document.body.innerHTML).toBe("wow it changed");
+  });
+
+  it("Consumer should remove listener", () => {
+    const { Consumer, Provider, context } = createContext();
+
+    const componentWillUnmount = jest
+      .spyOn(Consumer.prototype, "componentWillUnmount")
+      .mockImplementationOnce(function() {
+        Consumer.prototype.componentWillUnmount.call(this);
+        expect(context.setStates.length).toBe(1);
+      });
+
+    render(
+      h(
+        "div",
+        undefined,
+        h(Consumer, undefined, Object),
+        h(Consumer, undefined, Object)
+      ),
+      document.body
+    );
+    render("", document.body, document.body.lastChild);
+
+    expect(componentWillUnmount).toBeCalled();
   });
 });

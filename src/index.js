@@ -47,5 +47,9 @@ export const createContext = () => {
     value: undefined
   };
 
-  return { Provider: Provider(context), Consumer: Consumer(context) };
+  return {
+    Provider: Provider(context),
+    Consumer: Consumer(context),
+    context: context
+  };
 };
