@@ -1,0 +1,34 @@
+{
+  "name": "context.li",
+  "version": "0.1.0",
+  "description": "New React context API in Preact",
+  "source": "src/index.js",
+  "module": "dist/index.m.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest"
+  },
+  "repository": "github:conblem/context.li",
+  "author": "conblem <mail@conblem.me>",
+  "license": "ISC",
+  "jest": {
+    "collectCoverage": true
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "codecov": "^3.0.1",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3",
+    "preact": "^8.2.7",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-filesize": "^1.5.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-peer-deps-external": "^2.1.0"
+  },
+  "peerDependencies": {
+    "preact": "^8.2.7"
+  }
+}
