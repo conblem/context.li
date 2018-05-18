@@ -89,4 +89,14 @@ describe("context", () => {
 
     expect(componentWillUnmount).toBeCalled();
   });
+
+  it("Consumer should get initialValue of Context", () => {
+    const { Provider, Consumer } = createContext("Hello i am a initial value");
+
+    const App = () => h(Consumer, undefined, value => value);
+
+    render(h(App), document.body);
+
+    expect(document.body.innerHTML).toBe("Hello i am a initial value");
+  });
 });

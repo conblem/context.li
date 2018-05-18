@@ -41,10 +41,10 @@ const Consumer = context =>
     }
   };
 
-export const createContext = () => {
+export const createContext = value => {
   const context = {
     setStates: [],
-    value: undefined
+    value
   };
 
   return {
