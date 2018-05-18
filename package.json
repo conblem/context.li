@@ -1,6 +1,6 @@
 {
   "name": "context.li",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "New React context API in Preact",
   "source": "src/index.js",
   "module": "dist/index.m.js",
